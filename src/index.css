@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts fallback */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    @apply bg-gradient-to-br from-slate-50 via-purple-50/30 to-indigo-50/40;
+    @apply dark:from-gray-950 dark:via-gray-900 dark:to-gray-950;
+    @apply text-gray-900 dark:text-gray-100;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+  /* Card */
+  .card {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm;
+    @apply rounded-2xl shadow-sm border border-white/60 dark:border-gray-700/60;
+    @apply transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl;
+    @apply bg-brand-600 hover:bg-brand-700 active:bg-brand-800;
+    @apply text-white font-medium text-sm;
+    @apply transition-all duration-200;
+    @apply shadow-sm hover:shadow-brand-500/30 hover:shadow-md;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl;
+    @apply bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600;
+    @apply text-gray-700 dark:text-gray-200 font-medium text-sm;
+    @apply transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg;
+    @apply text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+    @apply transition-all duration-200 text-sm;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg;
+    @apply text-red-500 hover:text-red-700 dark:text-red-400;
+    @apply hover:bg-red-50 dark:hover:bg-red-900/20;
+    @apply transition-all duration-200 text-sm;
+  }
+
+  /* Form */
+  .textarea-field {
+    @apply w-full p-4 rounded-xl border border-gray-200 dark:border-gray-600;
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm;
+    @apply text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent;
+    @apply transition-all duration-200 resize-none;
+    @apply text-sm leading-relaxed;
+    font-family: inherit;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 to-indigo-500 bg-clip-text text-transparent;
+  }
+
+  /* Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.brand.300') transparent;
+  }
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c4b5fd;
+  border-radius: 10px;
+}
+
+/* Recharts tooltip styling */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  border-radius: 12px !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+}
