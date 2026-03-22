@@ -1,0 +1,10 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+  functions = "netlify/functions"
+
+# Tüm sayfaları index.html'e yönlendir (React Router SPA için gerekli)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
