@@ -108,12 +108,45 @@ export const calculateStreak = () => {
  */
 export const exportEntries = () => {
   const entries = getEntries();
-  const data = JSON.stringify(entries, null, 2);
-  const blob = new Blob([data], { type: 'application/json' });
+  if (!entries.length) return;
+
+  const lines = [];
+  lines.push('╔══════════════════════════════════════════════╗');
+  lines.push('       AI Mood Journal — Günlük Arşivim         ');
+  lines.push(`  Dışa aktarma tarihi: ${new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}`);
+  lines.push('╚══════════════════════════════════════════════╝');
+  lines.push('');
+
+  entries.forEach((entry, index) => {
+    const date = new Date(entry.date).toLocaleDateString('tr-TR', {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+    });
+
+    lines.push(`─── Giriş ${index + 1} ───────────────────────────────────`);
+    lines.push(`📅 ${date}`);
+    lines.push(`${entry.mood.emoji}  Duygu : ${entry.mood.emotion}   |   Puan : ${entry.mood.score}/10`);
+    lines.push('');
+    lines.push(entry.text);
+    lines.push('');
+    if (entry.mood.summary) {
+      lines.push(`🤖 Özet     : ${entry.mood.summary}`);
+    }
+    if (entry.mood.suggestion) {
+      lines.push(`💡 Öneri    : ${entry.mood.suggestion}`);
+    }
+    lines.push('');
+  });
+
+  lines.push('══════════════════════════════════════════════');
+  lines.push(`Toplam ${entries.length} giriş — AI Mood Journal`);
+
+  const text = lines.join('\n');
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `mood-journal-${new Date().toLocaleDateString('tr-TR').replace(/\//g, '-')}.json`;
+  a.download = `gunlugum-${new Date().toLocaleDateString('tr-TR').replace(/\//g, '-')}.txt`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
