@@ -36,7 +36,7 @@ Günlük yazar, yapay zeka duygu analizini saniyeler içinde yapar. Zamanla biri
 
 <br/>
 
-<img src="img/Screenshot2.png" alt="Geçmiş Sayfası" width="100%" />
+<img src="img/Screenshot2.png" alt="Geçmiş Sayfası" />
 
 > **Geçmiş** — Duygu filtresi, metin arama ve puana göre sıralama
 
