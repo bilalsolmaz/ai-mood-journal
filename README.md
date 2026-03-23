@@ -177,8 +177,6 @@ MIT © [Bilal Solmaz](https://github.com/bilalsolmaz)
 
 <div align="center">
 
-**Future Talent Programı Bitirme Projesi** · Mart 2026
-
 *React + OpenAI + Netlify Functions ile geliştirildi*
 
 [![Live Demo](https://img.shields.io/badge/🌐_Canlı_Demo-ai--mood--journal.netlify.app-00C7B7?style=for-the-badge)](https://ai-mood-journal.netlify.app)
