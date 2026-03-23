@@ -8,9 +8,9 @@
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![OpenAI](https://img.shields.io/badge/OpenAI-gpt--4o--mini-412991?style=flat-square&logo=openai&logoColor=white)](https://openai.com)
-[![Netlify](https://img.shields.io/badge/Netlify-Deployed-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://netlify.com)
+[![Netlify](https://img.shields.io/badge/Netlify-Live-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://ai-mood-journal.netlify.app)
 
-[🚀 Canlı Demo](#) · [📸 Ekran Görüntüleri](#-ekran-görüntüleri) · [🛠️ Kurulum](#️-yerel-kurulum)
+### 🚀 [ai-mood-journal.netlify.app](https://ai-mood-journal.netlify.app) — Canlıya Gör!
 
 </div>
 
@@ -26,6 +26,36 @@ Günlük yazar, yapay zeka duygu analizini saniyeler içinde yapar. Zamanla biri
 
 ---
 
+## 📸 Ekran Görüntüleri
+
+<div align="center">
+
+<img src="img/Screenshot1.png" alt="Ana Sayfa — Günlük Yazma" width="100%" />
+
+> **Ana Sayfa** — Günlük yazma alanı, anlık duygu analizi ve son girişler
+
+<br/>
+
+<img src="img/Screenshot2.png" alt="Geçmiş Sayfası" width="100%" />
+
+> **Geçmiş** — Duygu filtresi, metin arama ve puana göre sıralama
+
+<br/>
+
+<img src="img/Screenshot3.png" alt="Dashboard" width="100%" />
+
+> **Dashboard** — Haftalık trend grafiği, duygu dağılımı ve AI özeti
+
+<br/>
+
+<img src="img/Screenshot4.png" alt="Dark Mode" width="100%" />
+
+> **Dark Mode** — Tam karanlık mod desteği, tüm sayfalarda
+
+</div>
+
+---
+
 ## 🎯 Özellikler
 
 | Özellik | Açıklama |
@@ -37,8 +67,9 @@ Günlük yazar, yapay zeka duygu analizini saniyeler içinde yapar. Zamanla biri
 | **✏️ Inline Düzenleme** | Girişi düzenle → AI otomatik yeniden analiz eder |
 | **🔥 Streak Sistemi** | Arka arkaya giriş serisi — motivasyon badge'i |
 | **🌙 Dark Mode** | `tailwind darkMode: class` + localStorage kalıcılığı |
-| **⬇️ JSON Export** | Tüm verini tek tıkla dışa aktar |
+| **⬇️ TXT Export** | Tüm günlüğünü okunabilir `.txt` dosyası olarak tek tıkla indir |
 | **🔒 Güvenli API** | Netlify Functions proxy — API key client bundle'da asla görünmez |
+| **📣 Motivasyon Alıntıları** | Her sayfa yenilemede farklı, araştırmaya dayalı journaling gerçekleri |
 
 ---
 
@@ -49,7 +80,7 @@ Frontend          → React 18 + Vite 6
 Stil              → Tailwind CSS 3 (dark mode, custom animations)
 Routing           → React Router DOM 6
 Grafik            → Recharts (AreaChart, gradient fill)
-AI                → OpenAI GPT-4o-mini (gpt-4o-mini)
+AI                → OpenAI GPT-4o-mini
 API Güvenliği     → Netlify Functions (serverless proxy)
 Veri Saklama      → localStorage (CRUD + cache)
 Tip Güvenliği     → TypeScript Interfaces (Entry, MoodAnalysis)
@@ -70,7 +101,7 @@ src/
 │   ├── MoodChart.jsx       # Recharts AreaChart, özel tooltip
 │   └── AIInsight.jsx       # Skeleton loading, haftalık özet kutusu
 ├── pages/
-│   ├── Home.jsx            # Günlük yazma + son 5 giriş
+│   ├── Home.jsx            # Günlük yazma + motivasyon alıntısı + son 5 giriş
 │   ├── History.jsx         # Filtre + arama + sıralama + CRUD
 │   └── Dashboard.jsx       # İstatistik + grafik + AI özet
 ├── interfaces/
@@ -78,7 +109,7 @@ src/
 │   └── MoodAnalysis.ts     # AI analiz sonucu modeli
 └── services/
     ├── geminiService.js    # AI servis katmanı (Netlify proxy üzerinden)
-    └── storageService.js   # localStorage CRUD + streak + export
+    └── storageService.js   # localStorage CRUD + streak + TXT export
 
 netlify/
 └── functions/
@@ -138,19 +169,6 @@ netlify dev
 
 ---
 
-## 🧠 Yazılım Mühendisliği Prensipleri
-
-Bu proje kasıtlı olarak birkaç temel prensibi uygulamak üzere tasarlandı:
-
-- **Single Responsibility** — `geminiService.js` sadece AI, `storageService.js` sadece veri
-- **Separation of Concerns** — Servis katmanı, UI'dan bağımsız; Supabase'e geçmek sadece bir dosya değiştirir
-- **TypeScript Interfaces** — `Entry` ve `MoodAnalysis` tipleri merkezde tanımlı
-- **API Security** — `VITE_` öneki yerine Netlify Functions proxy; key asla client bundle'a girmiyor
-- **Caching** — Haftalık AI özeti `localStorage`'a cache'lenir; aynı girişler için tekrar API çağrısı olmaz
-- **Exponential Backoff** — Rate limit (429) hatalarında otomatik bekleme ve yeniden deneme
-
----
-
 ## 📄 Lisans
 
 MIT © [Bilal Solmaz](https://github.com/bilalsolmaz)
@@ -162,5 +180,7 @@ MIT © [Bilal Solmaz](https://github.com/bilalsolmaz)
 **Future Talent Programı Bitirme Projesi** · Mart 2026
 
 *React + OpenAI + Netlify Functions ile geliştirildi*
+
+[![Live Demo](https://img.shields.io/badge/🌐_Canlı_Demo-ai--mood--journal.netlify.app-00C7B7?style=for-the-badge)](https://ai-mood-journal.netlify.app)
 
 </div>
