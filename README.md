@@ -42,13 +42,13 @@ Günlük yazar, yapay zeka duygu analizini saniyeler içinde yapar. Zamanla biri
 
 <br/>
 
-<img src="img/Screenshot3.png" alt="Dashboard" width="100%" />
+<img src="img/Screenshot3.png" alt="Dashboard" />
 
 > **Dashboard** — Haftalık trend grafiği, duygu dağılımı ve AI özeti
 
 <br/>
 
-<img src="img/Screenshot4.png" alt="Dark Mode" width="100%" />
+<img src="img/Screenshot4.png" alt="Dark Mode" />
 
 > **Dark Mode** — Tam karanlık mod desteği, tüm sayfalarda
 
